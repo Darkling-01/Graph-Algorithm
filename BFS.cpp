@@ -16,6 +16,9 @@ void bfs(std::vector<std::vector<int>>&adj, int s){
     // mark all unvisited
     std::vector<bool> visited(adj.size(), false);
 
+    visited[s] = true;
+    q.push(s);
+
     // iterate over queue
     while(!q.empty()){
 
@@ -24,10 +27,20 @@ void bfs(std::vector<std::vector<int>>&adj, int s){
         q.pop();
         std::cout << curr << std::endl;
 
-    }
+        // processing all neighbors of s
+        for(int i : adj[curr]){
+            
+        }
 
+
+    }
 }
 
+// undirected graph
+void addEdges(std::vector<std::vector<int>>& adj, int u, int v){
+    adj[u].push_back(v);   // u -> v
+    adj[v].push_back(u);   // u <- v
+}
 
 int main(){
 
@@ -36,5 +49,7 @@ int main(){
 
     std::cout << "--BFS algorithm--" << std::endl;
 
+
+    return 0;
 
 }
