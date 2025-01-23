@@ -28,11 +28,13 @@ void bfs(std::vector<std::vector<int>>&adj, int s){
         std::cout << curr << std::endl;
 
         // processing all neighbors of s
-        for(int i : adj[curr]){
-            
+        // vistied, mark it visited and enqueue it
+        for(int x : adj[curr]){
+            if(!visited[x]){
+                visited[x] = true;
+                q.push(x);
+            }
         }
-
-
     }
 }
 
@@ -47,7 +49,11 @@ int main(){
     int n = 3; // size of vector
     std::vector<std::vector<int>>adj(n);
 
+    addEdges(adj, 3, 2);
+    addEdges(adj, 1, 4);
+
     std::cout << "--BFS algorithm--" << std::endl;
+    bfs(adj, 0);
 
 
     return 0;
